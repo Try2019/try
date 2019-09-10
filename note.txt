@@ -12,3 +12,9 @@ git push -u origin master
 1、git add .
 2、git commit -m "提交信息"
 3、git push
+
+首页app制作：
+1、完成header区域，使用的是mint-ui中的组件
+2、制作底部的tabbar区域，使用的是MUI中的tabbar中的组件
+3、在制作购物车小图标时操作较多
+4、在中间区域放置一个router-view来展示匹配到的路由组件
