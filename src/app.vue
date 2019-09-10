@@ -1,10 +1,11 @@
 <template>
-  <div style="padding-top: 40px">
+  <div style="padding-top: 40px;">
     <mt-header fixed title="Try"></mt-header>     <!-- mint-ui实现顶部区域 -->
 
 
-    <router-view></router-view>
-
+    <transition>
+      <router-view></router-view>
+    </transition>
 
     <nav class="mui-bar mui-bar-tab">                  <!-- 使用MUI实现底部区域 -->
       <router-link class="mui-tab-item" to="/home">
@@ -33,4 +34,17 @@
 </script>
 
 <style scoped>
+  .v-enter{
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  .v-leave-to{
+    transform: translateX(-100%);     /* 分开写令其与另一个组件进入的相同方向离开 */
+    opacity: 0;
+    position: absolute; /* 令其脱离文件流解决进出时上下跳动 */
+  }
+
+  .v-enter-active,.v-leave-active{
+    transition: all 0.7s ease;
+  }
 </style>

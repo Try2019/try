@@ -10,7 +10,7 @@ Vue.use(VueRouter);
 
 let myRouter=new VueRouter({
   routes:[
-    {path:'/',component:app},
+    {path:'/',redirect:'/home'},
     {path:'/home',component:home},
     {path:'/user',component:user},
     {path:'/search',component:search},
