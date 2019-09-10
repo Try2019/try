@@ -3,3 +3,12 @@
 2、使用命令git init，然后会多出一个隐藏项目.git
 输入git status显示未被跟踪
 添加到跟踪：git add .
+提交项目： git commit -m "init my project"  提交到本地的.git中
+git remote add origin https://github.com/Try2019/try.git
+git push -u origin master
+然后在GitHub上就可以看到上传的项目了
+
+若文件发生修改，则以传统方式上传：
+1、git add .
+2、git commit -m "提交信息"
+3、git push
