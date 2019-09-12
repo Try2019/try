@@ -1,5 +1,5 @@
 <template>
-  <div style="padding-top: 40px;">
+  <div style="padding-top: 40px;padding-bottom: 40px">
     <mt-header fixed title="Try"></mt-header>     <!-- mint-ui实现顶部区域 -->
 
 
