@@ -22,6 +22,14 @@ import './lib/dist/css/icons-extra.css'
 
 //导入时间格式插件
 import moment from 'moment';
+
+
+//vue-resource的相关配置：
+//Vue.http.options.root="http://www.liulongbin.top:3005"        全局的URL地址
+//全局设置post请求时 表单数据格式组织形式
+Vue.http.options.emulateJSON=true;
+
+
 //全局过滤器的使用：
 /*Vue.filter('dateFormat',function (msg) {
   //2015-04-16T03:50:28.000Z

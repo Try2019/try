@@ -6,6 +6,7 @@ import shopping from './components/shopping.vue'
 import user from './components/user.vue'
 import newsList from './components/subComponents/newsList.vue'
 import newsInfo from './components/subComponents/newsInfo.vue'
+import photoList from './components/subComponents/photoList.vue'
 Vue.use(VueRouter);
 
 
@@ -17,7 +18,8 @@ let myRouter=new VueRouter({
     {path:'/search',component:search},
     {path:'/shopping',component:shopping},
     {path:'/home/news',component:newsList},
-    {path:'/home/newsInfo/:id',component:newsInfo}           //:id表示进行id的匹配
+    {path:'/home/newsInfo/:id',component:newsInfo},           //:id表示进行id的匹配
+    {path:'/home/photoList',component:photoList}
   ],
   linkActiveClass:'mui-active'
 })

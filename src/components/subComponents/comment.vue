@@ -38,8 +38,25 @@
     },
     methods:{
       add:function () {
-        this.msg.push({content:this.m,add_time:new Date(),user_name:'匿名用户'});
-        this.m='';
+        let mm=this.m.trim();
+        if(mm===''){
+          Toast('输入的内容不能只有空格，请重新输入');
+          this.m='';
+        }
+        else{
+          this.$http.post('http://www.liulongbin.top:3005/api/postcomment/'+this.$route.params.id,{
+            content:this.m
+          }).then(result=>{
+            if(result.body.status===0){
+              Toast(result.body.message);
+              this.msg.unshift({content:this.m,add_time:new Date(),user_name:'匿名用户'});
+              this.m='';
+            }
+            else{
+              Toast('提交失败');
+            }
+          })
+        }
       },
       getComments:function (page=this.pageindex) {              //获取props中的id值，用于加载各个新闻中的评论
         this.$http.get('http://www.liulongbin.top:3005/api/getcomments/'+this.id+'?pageindex='+page).then(result=>{
