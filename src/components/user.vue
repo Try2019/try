@@ -1,5 +1,5 @@
 <template>
-  <h1>This is user</h1>
+  <h1 style="color:red">This is user</h1>
 </template>
 
 <script>

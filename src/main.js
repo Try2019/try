@@ -11,18 +11,26 @@ import 'mint-ui/lib/style.css'
 Vue.component(Header.name,Header);
 
 //轮播图的使用
-import { Swipe, SwipeItem, Button } from 'mint-ui';
+/*import { Swipe, SwipeItem, Button ,Lazyload } from 'mint-ui';
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
 Vue.component(Button.name, Button);
 
+Vue.use(Lazyload);*/
+//由于Lazyload在按需导入时不起作用，需要全局导入
+import MintUI from 'mint-ui';
+Vue.use(MintUI);
+
 //购物车图标的使用
-import './lib/dist/css/mui.min.css'
+import './lib/dist/css/mui.css'
 import './lib/dist/css/icons-extra.css'
 
 //导入时间格式插件
 import moment from 'moment';
 
+//安装图片预览插件
+import VuePreview from 'vue-preview';
+Vue.use(VuePreview)
 
 //vue-resource的相关配置：
 //Vue.http.options.root="http://www.liulongbin.top:3005"        全局的URL地址

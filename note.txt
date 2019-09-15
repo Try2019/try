@@ -18,3 +18,23 @@ git push -u origin master
 2、制作底部的tabbar区域，使用的是MUI中的tabbar中的组件
 3、在制作购物车小图标时操作较多
 4、在中间区域放置一个router-view来展示匹配到的路由组件
+
+问题：初始化滚动条时导入的min.js控制台报错uncaught typeerror：caller....，由于webpack中的bundle.js采用的是严格模式，
+所以这两者冲突了
+将webpack中的严格模式禁用：使用插件：babel-plugin-transform-remove-strict-mode
+将滑动条调试成功后，tabbar无法工作了，这时需要将tabbar中的每个按钮的mui-tab-item改一下名字
+
+实现缩略图：
+npm install vue-preview -S
+在main中注册：
+import VuePreview from 'vue-preview';
+Vue.use(VuePreview);
+
+在手机上调试项目：
+1、保证手机与电脑在同一个子网下面
+2、打开项目中的package.json文件，在dev脚本中，添加一个--host指令，将当前电脑的ip地址指定为host的参数值
+3、然后用手机浏览器打开电脑浏览器上的网址
+
+在网页中，有两种跳转方式：
+1、使用a标签的方式叫做标签跳转（router-link也算）
+2、使用window.location.href的形式，叫做编程式导航（这里将goods.vue改造为这种跳转形式）
