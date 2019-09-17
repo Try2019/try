@@ -23,7 +23,6 @@
         this.$http.get('http://www.liulongbin.top:3005/api/goods/getdesc/'+this.id).then(result=>{
           if(result.body.status===0){
             this.intro=result.body.message[0];
-            console.log(result.body.message[0]);
           }
           else{
             Toast('详情加载失败');

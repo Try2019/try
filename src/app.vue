@@ -1,7 +1,10 @@
 <template>
   <div style="padding-top: 40px;padding-bottom: 40px">
-    <mt-header fixed title="Try"></mt-header>     <!-- mint-ui实现顶部区域 -->
-
+    <mt-header fixed title="Try">
+      <span v-on:click="goBack" slot="left" v-show="flag">
+        <mt-button icon="back">返回</mt-button>
+      </span>
+    </mt-header>     <!-- mint-ui实现顶部区域 -->
 
     <transition>
       <router-view></router-view>
@@ -16,13 +19,13 @@
         <span class="mui-icon mui-icon-contact"></span>
         <span class="mui-tab-label">会员</span>
       </router-link>
-      <router-link class="mui-tab-item1" to="shopping">
+      <router-link class="mui-tab-item1" to="/shopping">
         <span class="mui-icon mui-icon-extra mui-icon-extra-cart">
-          <span class="mui-badge">9</span>
+          <span class="mui-badge" id="badge">{{this.$store.getters.howMuch[0]}}</span>
         </span>
         <span class="mui-tab-label">购物车</span>
       </router-link>
-      <router-link class="mui-tab-item1" to="search">
+      <router-link class="mui-tab-item1" to="/search">
         <span class="mui-icon mui-icon-search"></span>
         <span class="mui-tab-label">搜索</span>
       </router-link>
@@ -31,6 +34,31 @@
 </template>
 
 <script>
+  export default {
+    data:function () {
+      return {
+        flag:false
+      }
+    },
+    created(){     //若刷新页面，返回按钮会消失，这时候就需要在初始化页面时判断当前页面并决定是否展示开始按钮
+      this.flag= this.$route.path==='/home' ? false : true;
+    },
+    methods:{
+      goBack(){
+        this.$router.go(-1);
+      }
+    },
+    watch:{        //监听路由是否改变为首页，若为首页则将返回按钮隐藏，不是则显示
+    "$route.path":function (newVal,oldVal) {
+        if(newVal==='/home'){
+          this.flag=false;
+        }
+        else{
+          this.flag=true;
+        }
+      }
+    }
+  }
 </script>
 
 <style scoped>
